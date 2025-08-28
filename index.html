@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>NEROX</title>
-   <link rel="icon" type="image/png" href="NEROX.png">
+  <link rel="icon" type="image/png" href="NEROX.png">
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
@@ -12,9 +12,8 @@
 
     <!-- Sidebar -->
     <aside class="sidebar">
-      <h1 class="logo animate-logo">NEROX</h1>
-      <button class="new-chat neon-btn" onclick="clearChat()">+ New Chat</button>
-     
+      <h1 class="logo">NEROX</h1>
+      <button class="new-chat" onclick="newChat()">+ New Chat</button>
       <div class="history" id="chat-history"></div>
       <div class="toggle-theme">
         <button class="theme-btn" onclick="toggleTheme()">🌙 / ☀️</button>
@@ -25,23 +24,23 @@
     <main class="chat-area">
       <div id="chat-box" class="chat-box"></div>
 
-      <!-- Typing animation -->
+      <!-- Typing indicator -->
       <div id="typing-indicator" class="typing hidden">
-        <span></span><span></span><span></span>
+        <div class="ai-logo"><img src="NEROX.png" alt="AI"></div>
+        <div class="dots"><span></span><span></span><span></span></div>
       </div>
 
       <!-- Input bar -->
-      <div class="input-bar glassy">
+      <div class="input-bar">
         <input 
           type="text" 
           id="user-input" 
           placeholder="💬 Type a message..." 
           onkeypress="if(event.key==='Enter') sendMessage()"
         >
-        <input type="file" id="file-input" hidden onchange="previewFile(event)">
-        <button class="file-btn bounce" onclick="document.getElementById('file-input').click()">📎</button>
-        <button class="send-btn pulse" onclick="sendMessage()">➤</button>
-        <button class="voice-btn bounce" onclick="startVoice()">🎤</button>
+        <button class="send-btn" onclick="sendMessage()">➤</button>
+        <button class="stop-btn" onclick="stopAI()">⏹ Stop</button>
+        <button class="voice-toggle" onclick="toggleVoice()">🔊 Voice: ON</button>
       </div>
     </main>
   </div>
@@ -49,6 +48,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
-
-
