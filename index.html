@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gemini Chat</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <div class="app">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h1 class="logo animate-logo">NEROX</h1>
+      <button class="new-chat neon-btn" onclick="clearChat()">+ New Chat</button>
+      <button class="new-feature neon-btn" onclick="alert('🚀 New feature coming soon!')">✨ New</button>
+      <div class="history" id="chat-history"></div>
+      <div class="toggle-theme">
+        <button class="theme-btn" onclick="toggleTheme()">🌙 / ☀️</button>
+      </div>
+    </aside>
+
+    <!-- Chat Area -->
+    <main class="chat-area">
+      <div id="chat-box" class="chat-box"></div>
+
+      <!-- Typing animation -->
+      <div id="typing-indicator" class="typing hidden">
+        <span></span><span></span><span></span>
+      </div>
+
+      <!-- Input bar -->
+      <div class="input-bar glassy">
+        <input 
+          type="text" 
+          id="user-input" 
+          placeholder="💬 Type a message..." 
+          onkeypress="if(event.key==='Enter') sendMessage()"
+        >
+        <input type="file" id="file-input" hidden onchange="previewFile(event)">
+        <button class="file-btn bounce" onclick="document.getElementById('file-input').click()">📎</button>
+        <button class="send-btn pulse" onclick="sendMessage()">➤</button>
+        <button class="voice-btn bounce" onclick="startVoice()">🎤</button>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
